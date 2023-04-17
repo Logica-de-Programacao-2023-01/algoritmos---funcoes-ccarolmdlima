@@ -1,0 +1,25 @@
+Crie uma função que receba um slice de strings como parâmetro e retorne uma nova string com as strings em ordem alfabética. Caso o slice esteja vazio, retorne um erro.
+
+package main
+
+import (
+	"fmt"
+	"strings"
+)
+
+func main() {
+	fmt.Println(sortStrings([]string{"Carolina", "Maikuma", "Dias", "Lima"}))
+
+}
+
+func sortStrings(slice []string) string {
+	for i := 0; i < len(slice); i++ {
+		for j := 0; j < len(slice); j++ {
+			if strings.Compare(slice[i], slice[j]) == 1 {
+				slice[i], slice[j] = slice[j], slice[i]
+			}
+		}
+	}
+
+	return strings.Join(slice, " ")
+}
